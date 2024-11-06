@@ -58,8 +58,8 @@ class HomeSectionController extends Controller
     public function update(Request $request, string $id)
     {
         $rules = [
-            'tagline' => 'required',
-            'image' => 'required|mimes:jpg,png,jpeg',
+            'tagline' => 'required|string',
+            'image' => 'required|image|mimes:jpg,png,jpeg',
         ];
 
         $validatedData = $request->validate($rules);

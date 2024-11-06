@@ -1,28 +1,24 @@
 @extends('layout.index')
 @section('container')
 
-
-
-
 <div class="max-w-screen-xl px-4 mx-auto 2xl:px-0 lg:flex lg:justify-center lg:items-center lg:h-screen">
     <div class="lg:grid lg:grid-cols-2 lg:gap-8 xl:gap-16 place-items-center">
       <div class="shrink-0 max-w-md lg:max-w-lg mx-auto">
-        <img class="w-full aspect-square dark:hidden" src="/horizontal.jpg" alt="" />
-        <img class="w-full hidden dark:block" src="https://flowbite.s3.amazonaws.com/blocks/e-commerce/imac-front-dark.svg" alt="" />
+        <img class="w-full aspect-square dark:hidden" src="{{ asset('storage/' . $data->image) }}" alt="" />
+        
       </div>
 
       <div class="mt-6 sm:mt-8 lg:mt-0 ">
         <h1
           class="text-xl font-semibold text-gray-900 sm:text-2xl dark:text-white"
         >
-          Apple iMac 24" All-In-One Computer, Apple M1, 8GB RAM, 256GB SSD,
-          Mac OS, Pink
+          {{ $data->name }}
         </h1>
         <div class="mt-4 sm:items-center sm:gap-4 sm:flex">
           <p
             class="text-2xl font-extrabold text-gray-900 sm:text-3xl dark:text-white"
           >
-            $1,249.99
+            Rp {{ $data->price }}
           </p>
 
           <div class="flex items-center gap-2 mt-2 sm:mt-0">
@@ -108,9 +104,7 @@
         <hr class="my-6 md:my-8 border-gray-200 dark:border-gray-800" />
 
         <p class="mb-6 text-gray-500 dark:text-gray-400 text-sm">
-          Studio quality three mic array for crystal clear calls and voice
-          recordings. Six-speaker sound system for a remarkably robust and
-          high-quality audio experience. Up to 256GB of ultrafast SSD storage.
+          {{ $data->detail_product }}
         </p>
 
         

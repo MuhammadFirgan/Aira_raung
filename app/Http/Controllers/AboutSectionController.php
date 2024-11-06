@@ -59,8 +59,8 @@ class AboutSectionController extends Controller
     public function update(Request $request, string $id)
     {
         $rules = [
-            'description' => 'required',
-            'image' => 'required|mimes:jpg,png,jpeg',
+            'description' => 'required|string',
+            'image' => 'required|image|mimes:jpg,png,jpeg',
         ];
 
         $validatedData = $request->validate($rules);

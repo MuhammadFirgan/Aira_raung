@@ -57,8 +57,8 @@ class ContactSectionController extends Controller
     {
  
         $rules = [
-            'address' => 'required|max:255',
-            'no_wa' => 'required|max:255',
+            'address' => 'required|max:255|string',
+            'no_wa' => 'required|max:255|string',
         ];
 
         $validatedData = $request->validate($rules);

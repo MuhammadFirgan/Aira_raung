@@ -1,3 +1,5 @@
+
+
 <section class="bg-gray-50 dark:bg-gray-900 w-full">
   <div class="w-full ">
       <!-- Start coding here -->
@@ -15,14 +17,24 @@
                       </tr>
                   </thead>
                   <tbody>
-                      <tr class="border-b dark:border-gray-700">
-                          <th scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">Apple iMac 27&#34;</th>
-                          <td class="px-4 py-3">Fandi nurahman via mahardi candra siam</td>
-                          <td class="px-4 py-3">Apple</td>
-                          
-                          <td class="px-4 py-3">$2999</td>
-                          
-                      </tr>
+                    @foreach ($transactions as $item)    
+                        <tr class="border-b dark:border-gray-700">
+                            <th scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                @if ($item->status == 'paid')  
+                                    <span class="bg-green-800 block text-center text-white px-2 py-1 text-xs rounded-lg">{{ $item->status }}</span>
+                                @elseif($item->status == 'failed')
+                                    <span class="bg-red-800 block text-center text-white px-2 py-1 text-xs rounded-lg">{{ $item->status }}</span>
+                                @else
+                                    <span class="bg-gray-800 block text-white px-2 py-1 text-xs rounded-lg">{{ $item->status }}</span>
+                                @endif
+                            </th>
+                            <td class="px-4 py-3">{{ $item->cust_name }}</td>
+                            <td class="px-4 py-3">{{ $item->product_name }}</td>
+                            
+                            <td class="px-4 py-3">Rp. {{ $item->price }}</td>
+                            
+                        </tr>
+                    @endforeach
                       
                       
                   </tbody>
